@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "475469111046",
+    "firebase_url": "https://order-up-119f9.firebaseio.com",
+    "project_id": "order-up-119f9",
+    "storage_bucket": "order-up-119f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475469111046:android:3c69de917cbc8183",
+        "android_client_info": {
+          "package_name": "com.wickeddevs.orderup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475469111046-r1045kc8pfhm96m1hn7k8rm14annobps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVu05kbWEOK0-Mq3pDSIf6gRChY5nVLkw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
