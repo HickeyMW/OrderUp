@@ -8,6 +8,9 @@ import com.firebase.ui.auth.AuthUI;
 import java.util.Arrays;
 import java.util.List;
 
+
+
+// constructor. firebase makes new sign in
 public class LoadingActivity extends AppCompatActivity {
 
     @Override
