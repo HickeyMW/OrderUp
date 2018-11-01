@@ -1,4 +1,4 @@
-package com.wickeddevs.orderup;
+package com.wickeddevs.orderup.data;
 
 public class DataManager {
     private static DataManager instance = null;

@@ -1,9 +1,10 @@
-package com.wickeddevs.orderup;
+package com.wickeddevs.orderup.ui.loading;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.firebase.ui.auth.AuthUI;
+import com.wickeddevs.orderup.R;
 
 import java.util.Arrays;
 import java.util.List;
