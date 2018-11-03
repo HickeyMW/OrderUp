@@ -4,8 +4,9 @@ package com.wickeddevs.orderup.data;
 
 public class Food extends Item {
 
+    int ID;
     double cost;
-
+    String modifications;
     String name;
 
 }
