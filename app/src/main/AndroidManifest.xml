@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.role.RoleActivity"></activity>
+        <activity android:name=".ui.role.RoleActivity" />
+        <activity android:name=".ui.bar.BarActivity"></activity>
     </application>
 
 </manifest>
