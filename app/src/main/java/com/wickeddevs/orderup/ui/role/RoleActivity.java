@@ -1,5 +1,6 @@
 package com.wickeddevs.orderup.ui.role;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.wickeddevs.orderup.R;
+import com.wickeddevs.orderup.ui.bar.BarActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +38,8 @@ public class RoleActivity extends AppCompatActivity {
         findViewById(R.id.btnBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), BarActivity.class);
+                startActivity(i);
                 Toast.makeText(getApplicationContext(), "Pressed Bar", Toast.LENGTH_SHORT).show();
             }
         });
