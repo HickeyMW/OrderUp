@@ -4,7 +4,7 @@ package com.wickeddevs.orderup.data;
 
 public class Drink extends Item {
 
-    private String name;
+    private String dname;
     private double cost;
     private String mods;
 
@@ -107,23 +107,23 @@ public class Drink extends Item {
 
     // Drink constructor
     public Drink (String startName, int startPrice){
-        name = startName;
+        dname = startName;
         cost = startPrice;
     }
 
     // returns drinks name string
     public String getName(){
-        return name;
+        return dname;
     }
 
     //sets the cards name string
     public void setName(String newName){
-        name = newName;
+        dname = newName;
     }
 
     //gets the drinks name
     public String getDrinkName(){
-        return getDrinkName(name);
+        return getDrinkName(dname);
     }
 
 
