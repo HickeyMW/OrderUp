@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.wickeddevs.orderup.R;
 
-public class BarActivity extends AppCompatActivity {
+public class BarActivity extends AppCompatActivity implements BarContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
