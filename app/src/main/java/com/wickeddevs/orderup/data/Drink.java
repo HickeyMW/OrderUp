@@ -4,8 +4,8 @@ package com.wickeddevs.orderup.data;
 
 public class Drink extends Item {
 
-    private String dname;
-    private double cost;
+    private int dname;
+    //private int cost;
     private String mods;
 
 
@@ -106,18 +106,18 @@ public class Drink extends Item {
     };
 
     // Drink constructor
-    public Drink (String startName, int startPrice){
+    public Drink (int startName, int startPrice){
         dname = startName;
         cost = startPrice;
     }
 
     // returns drinks name string
-    public String getName(){
+    public int getName(){
         return dname;
     }
 
     //sets the cards name string
-    public void setName(String newName){
+    public void setName(int newName){
         dname = newName;
     }
 
