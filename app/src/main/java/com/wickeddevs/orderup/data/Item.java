@@ -1,20 +1,19 @@
 package com.wickeddevs.orderup.data;
 
 public abstract class Item {
-    int ID;
-    double cost;
-    String modifications;
-    String name;
 
-    public void addToOrder(){
-        Order.push(this);
+    protected int id;
+    private String modifications;
+
+    public String getModifications() {
+        return modifications;
+    }
+    public void setModifications(String modifications) {
+        this.modifications = modifications;
     }
 
+    public abstract String getName();
 
-
-
-
-
-
+    public abstract double getPrice();
 
 }

@@ -4,12 +4,23 @@ package com.wickeddevs.orderup.data;
 
 public class Drink extends Item {
 
-    private int dname;
-    //private int cost;
-    private String mods;
+    // Drink constructor
+    public Drink (int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getName() {
+        return names[id];
+    }
+
+    @Override
+    public double getPrice() {
+        return prices[id];
+    }
 
 
-    // Name Enums
+    // Name Enums - Not sure if necessary
     public static final int Margarita= 0 ;
     public static final int WhiteRussian= 1 ;
     public static final int SexOnTheBeach= 2;
@@ -33,7 +44,7 @@ public class Drink extends Item {
     public static final int SauvignonBlanc= 20;
 
     // Drink Array
-    private static String[] drinks = {
+    private static String[] names = {
             "Margarita",
             "White Russian",
             "Sex on the Beach",
@@ -58,75 +69,35 @@ public class Drink extends Item {
 
     };
 
-    // Price enums
-    public static final int Zero = 0;
-    public static final int One = 1;
-    public static final int Two = 2;
-    public static final int Three = 3;
-    public static final int Four = 4;
-    public static final int Five = 5;
-    public static final int Six = 6;
-    public static final int Seven = 7;
-    public static final int Eight = 8;
-    public static final int Nine = 9;
-    public static final int Ten = 10;
-    public static final int Eleven = 11;
-    public static final int Twelve = 12;
-    public static final int Thirteen = 13;
-    public static final int Fourteen = 14;
-    public static final int Fifteen = 15;
-    public static final int Sixteen = 16;
-    public static final int Seventeen = 17;
-    public static final int Eighteen = 18;
-    public static final int Nineteen = 19;
-    public static final int Twenty = 20;
+
 
     // Price Array
-    private static double[] prices = {
-        1.0,
-        2.0,
-        3.0,
-        4.0,
-        5.0,
-        6.0,
-        7.0,
-        8.0,
-        9.0,
-        10.0,
-        11.0,
-        12.0,
-        13.0,
-        14.0,
-        15.0,
-        16.0,
-        17.0,
-        18.0,
-        19.0,
-        20.0
-    };
-
-    // Drink constructor
-    public Drink (int startName, int startPrice){
-        dname = startName;
-        cost = startPrice;
-    }
-
-    // returns drinks name string
-    public int getName(){
-        return dname;
-    }
-
-    //sets the cards name string
-    public void setName(int newName){
-        dname = newName;
-    }
-
-    //gets the drinks name
-    public String getDrinkName(){
-        return getDrinkName(dname);
-    }
+    private static double[] prices = { 4.99, 4.99, 4.99, 4.99, 4.99, 3.49, 3.49, 3.49, 3.49, 3.49,
+        4.49, 4.49, 4.49, 4.49, 4.49, 5.49, 5.49, 5.49, 5.49, 5.49};
 
 
+    //    // Price enums
+//    public static final int Zero = 0;
+//    public static final int One = 1;
+//    public static final int Two = 2;
+//    public static final int Three = 3;
+//    public static final int Four = 4;
+//    public static final int Five = 5;
+//    public static final int Six = 6;
+//    public static final int Seven = 7;
+//    public static final int Eight = 8;
+//    public static final int Nine = 9;
+//    public static final int Ten = 10;
+//    public static final int Eleven = 11;
+//    public static final int Twelve = 12;
+//    public static final int Thirteen = 13;
+//    public static final int Fourteen = 14;
+//    public static final int Fifteen = 15;
+//    public static final int Sixteen = 16;
+//    public static final int Seventeen = 17;
+//    public static final int Eighteen = 18;
+//    public static final int Nineteen = 19;
+//    public static final int Twenty = 20;
 
 
 }

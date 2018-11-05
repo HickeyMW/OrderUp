@@ -4,9 +4,13 @@ package com.wickeddevs.orderup.data;
 
 public class Food extends Item {
 
-    int ID;
-    double cost;
-    String modifications;
-    String name;
+    @Override
+    public String getName() {
+        return null;
+    }
 
+    @Override
+    public double getPrice() {
+        return 0;
+    }
 }

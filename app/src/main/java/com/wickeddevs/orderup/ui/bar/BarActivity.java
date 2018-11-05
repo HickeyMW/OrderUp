@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wickeddevs.orderup.R;
+import com.wickeddevs.orderup.data.Order;
 
-public class BarActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class BarActivity extends AppCompatActivity implements BarContract.View {
 
     RecyclerView rvBar;
-    LayoutInflater layoutInflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,4 +29,13 @@ public class BarActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void initialOrders(ArrayList<Order> orders) {
+
+    }
+
+    @Override
+    public void addOrder(Order order) {
+
+    }
 }
