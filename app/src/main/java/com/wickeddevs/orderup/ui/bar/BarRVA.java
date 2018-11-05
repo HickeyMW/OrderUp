@@ -7,20 +7,55 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.wickeddevs.orderup.R;
+import com.wickeddevs.orderup.data.Drink;
+import com.wickeddevs.orderup.data.Item;
+import com.wickeddevs.orderup.data.Order;
+
+import java.util.ArrayList;
 
 public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private LayoutInflater layoutInflater;
+    private ArrayList<Order> orders;
+    private  ArrayList<Object> items;
 
-    public BarRVA(Context context) {
+    public BarRVA(Context context, ArrayList<Order> orders) {
         layoutInflater = LayoutInflater.from(context);
+        this.orders = orders;
+        createItemList();
+    }
+
+    private void createItemList() {
+        items = new ArrayList<>();
+        for (Order order: orders) {
+            items.add(order);
+            for (Item item: order.items) {
+                items.add(item);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+        createItemList();
+    }
+
+    private void removeOrder(Order order) {
+        orders.remove(order);
+        createItemList();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return position;
+        if (items.get(position).getClass() == Order.class) {
+            return 0;
+        }
+        return 1;
     }
 
     @NonNull
@@ -39,25 +74,53 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        if (holder.getItemViewType() == 0) {
+            BarOrderVH barOrderVH = (BarOrderVH) holder;
+            Order order = (Order) items.get(position);
+            barOrderVH.order = order;
+            barOrderVH.tvTable.setText("Table " + order.table);
+            barOrderVH.tvOrder.setText("Order " + order.orderNumber);
+        } else {
+            BarDrinkVH BarDrinkVH = (BarDrinkVH) holder;
+            Drink drink = (Drink) items.get(position);
+            BarDrinkVH.tvDrink.setText(drink.getName());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+
+        return items.size();
     }
 
+
+
     public class BarOrderVH extends RecyclerView.ViewHolder {
+        TextView tvOrder;
+        TextView tvTable;
+        Button btnCompleted;
+        Order order;
 
         public BarOrderVH(View itemView) {
             super(itemView);
+            tvOrder = itemView.findViewById(R.id.tvBrvaOrder);
+            tvTable = itemView.findViewById(R.id.tvBrvaTable);
+            btnCompleted = itemView.findViewById(R.id.btnBrvaCompleted);
+            btnCompleted.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    removeOrder(order);
+                }
+            });
         }
     }
 
     public class BarDrinkVH extends RecyclerView.ViewHolder {
+        TextView tvDrink;
 
         public BarDrinkVH(View itemView) {
             super(itemView);
+            tvDrink = itemView.findViewById(R.id.tvBrvaDrink);
         }
     }
 

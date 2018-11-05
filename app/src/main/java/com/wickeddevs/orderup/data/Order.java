@@ -4,5 +4,7 @@ import java.util.ArrayList;
 
 public class Order {
 
-    ArrayList<Item> items = new ArrayList<>();
+    public int table;
+    public int orderNumber;
+    public ArrayList<Item> items = new ArrayList<>();
 }

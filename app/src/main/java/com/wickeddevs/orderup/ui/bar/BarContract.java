@@ -13,7 +13,7 @@ public interface BarContract {
     }
 
     interface ViewListener {
-        void getOrders(ArrayList<Order> orders);
+        void getOrders();
 
         void orderCompleted(Order order);
     }
