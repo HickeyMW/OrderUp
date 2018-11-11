@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wickeddevs.orderup.R;
+import com.wickeddevs.orderup.data.DataManager;
 import com.wickeddevs.orderup.data.Order;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ public class BarActivity extends AppCompatActivity implements BarContract.View {
         viewListener = new BarPresenter(this);
         setTitle("Bar Activity");
         rvBar = findViewById(R.id.rvBar);
+
+        //Spin up the data manager and get the drink list just for fun
+        DataManager.getInstance().getDrinkList();
+
         viewListener.getOrders();
 
     }

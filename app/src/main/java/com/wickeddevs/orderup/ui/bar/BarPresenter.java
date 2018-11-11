@@ -27,6 +27,7 @@ public class BarPresenter implements BarContract.ViewListener {
         order2.items.add(new Drink(4));
         orders.add(order);
         orders.add(order2);
+
         view.initialOrders(orders);
     }
 
