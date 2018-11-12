@@ -13,4 +13,11 @@ public class Food extends Item {
     public double getPrice() {
         return 0;
     }
+
+    @Override
+    public void addToOrder() {
+        //OrderClassifier.addItem(this);
+    }
+
+
 }

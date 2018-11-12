@@ -16,4 +16,5 @@ public abstract class Item {
 
     public abstract double getPrice();
 
+    public abstract void addToOrder();
 }
