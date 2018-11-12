@@ -1,4 +1,4 @@
-package com.wickeddevs.orderup.ui.bar;
+package com.wickeddevs.orderup.ui.kitchen;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,19 +11,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.wickeddevs.orderup.R;
-import com.wickeddevs.orderup.data.Drink;
+import com.wickeddevs.orderup.data.Appetizer;
+import com.wickeddevs.orderup.data.Food;
 import com.wickeddevs.orderup.data.Item;
 import com.wickeddevs.orderup.data.Order;
 
 import java.util.ArrayList;
 
-public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class KitchenRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private LayoutInflater layoutInflater;
     private ArrayList<Order> orders;
     private  ArrayList<Object> items;
 
-    public BarRVA(Context context, ArrayList<Order> orders) {
+    public KitchenRVA(Context context, ArrayList<Order> orders) {
         layoutInflater = LayoutInflater.from(context);
         this.orders = orders;
         createItemList();
@@ -54,8 +55,10 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemViewType(int position) {
         if (items.get(position).getClass() == Order.class) {
             return 0;
+        } else if (items.get(position).getClass() == Appetizer.class) {
+            return 1;
         }
-        return 1;
+        return 2;
     }
 
     @NonNull
@@ -64,24 +67,28 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         View view;
         if (viewType == 0) {
             view = layoutInflater.inflate(R.layout.view_order, parent, false);
-            return new BarOrderVH(view);
+            return new OrderVH(view);
         }
         view = layoutInflater.inflate(R.layout.view_order_item, parent, false);
-        return new BarDrinkVH(view);
+        return new ItemVH(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder.getItemViewType() == 0) {
-            BarOrderVH barOrderVH = (BarOrderVH) holder;
+            OrderVH orderVH = (OrderVH) holder;
             Order order = (Order) items.get(position);
-            barOrderVH.order = order;
-            barOrderVH.tvTable.setText("Table " + order.table);
-            barOrderVH.tvOrder.setText("Order " + order.orderNumber);
+            orderVH.order = order;
+            orderVH.tvTable.setText("Table " + order.table);
+            orderVH.tvOrder.setText("Order " + order.orderNumber);
+        } else if (holder.getItemViewType() == 0) {
+            ItemVH itemVH = (ItemVH) holder;
+            Appetizer appetizer = (Appetizer) items.get(position);
+            itemVH.tvName.setText(appetizer.getName());
         } else {
-            BarDrinkVH BarDrinkVH = (BarDrinkVH) holder;
-            Drink drink = (Drink) items.get(position);
-            BarDrinkVH.tvName.setText(drink.getName());
+            ItemVH itemVH = (ItemVH) holder;
+            Food food = (Food) items.get(position);
+            itemVH.tvName.setText(food.getName());
         }
     }
 
@@ -93,13 +100,13 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
 
-    public class BarOrderVH extends RecyclerView.ViewHolder {
+    public class OrderVH extends RecyclerView.ViewHolder {
         TextView tvOrder;
         TextView tvTable;
         Button btnCompleted;
         Order order;
 
-        public BarOrderVH(View itemView) {
+        public OrderVH(View itemView) {
             super(itemView);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             tvTable = itemView.findViewById(R.id.tvTable);
@@ -113,14 +120,12 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public class BarDrinkVH extends RecyclerView.ViewHolder {
+    public class ItemVH extends RecyclerView.ViewHolder {
         TextView tvName;
 
-        public BarDrinkVH(View itemView) {
+        public ItemVH(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
         }
     }
-
-
 }

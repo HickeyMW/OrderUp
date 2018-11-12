@@ -6,18 +6,18 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvBrvaOrder"
+        android:id="@+id/tvOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBrvaCompleted"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCompleted"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnBrvaCompleted"
+        app:layout_constraintTop_toTopOf="@+id/btnCompleted"
         tools:text="Order 23" />
 
     <Button
-        android:id="@+id/btnBrvaCompleted"
+        android:id="@+id/btnCompleted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -29,14 +29,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvBrvaTable"
+        android:id="@+id/tvTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Table 17"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBrvaCompleted"
-        app:layout_constraintEnd_toStartOf="@+id/btnBrvaCompleted"
-        app:layout_constraintStart_toEndOf="@+id/tvBrvaOrder"
-        app:layout_constraintTop_toTopOf="@+id/btnBrvaCompleted" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnCompleted"
+        app:layout_constraintEnd_toStartOf="@+id/btnCompleted"
+        app:layout_constraintStart_toEndOf="@+id/tvOrder"
+        app:layout_constraintTop_toTopOf="@+id/btnCompleted" />
 </android.support.constraint.ConstraintLayout>
