@@ -16,5 +16,8 @@ public abstract class Item {
 
     public abstract double getPrice();
 
-    public abstract void addToOrder();
+    public void addToOrder(){ //Adds the item to an order
+        //OrderClassifier.addItem(this);
+    }
+
 }

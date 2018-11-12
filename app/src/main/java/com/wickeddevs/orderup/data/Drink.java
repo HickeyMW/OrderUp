@@ -19,10 +19,7 @@ public class Drink extends Item {
         return prices[id];
     }
 
-    @Override
-    public void addToOrder() {
-        //OrderClassifier.addItem(this);
-    }
+
 
 
     // Name Enums - Not sure if necessary

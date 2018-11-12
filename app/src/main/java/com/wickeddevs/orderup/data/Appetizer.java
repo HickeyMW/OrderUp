@@ -12,8 +12,5 @@ public class Appetizer extends Item {
         return 0;
     }
 
-    @Override
-    public void addToOrder() {
-        //OrderClassifier.addItem(this);
-    }
+
 }
