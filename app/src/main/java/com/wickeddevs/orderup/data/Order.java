@@ -39,5 +39,10 @@ public class Order {
 
     }
 
+    public void sendOrder(){ //Sends the order to the server
+
+
+    }
+
 
 }
