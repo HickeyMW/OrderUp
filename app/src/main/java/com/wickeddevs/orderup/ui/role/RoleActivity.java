@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.wickeddevs.orderup.R;
+import com.wickeddevs.orderup.data.DataManager;
 import com.wickeddevs.orderup.ui.bar.BarActivity;
 
 import java.util.Arrays;
@@ -47,6 +48,8 @@ public class RoleActivity extends AppCompatActivity {
         List<AuthUI.IdpConfig> providers = Arrays.asList(new AuthUI.IdpConfig.EmailBuilder().build());
         startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build(), 22);
 
+        //Spin up the data manager and get the drink list just for fun
+        DataManager.getInstance();
 
     }
 }
