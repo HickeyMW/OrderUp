@@ -48,30 +48,6 @@ public class DataManager {
         //Listen for DrinkList changes (There shouldn't probably be any, but just in case)
         database.child( "drinklist/" ).addValueEventListener( drinkListListener );
 
-        //For testing
-
-        addToDrinkList( new DrinkListItem( "Margarita", 4.99 ) );
-        addToDrinkList( new DrinkListItem( "White Russian", 4.99 ) );
-        addToDrinkList( new DrinkListItem( "Sex on the Beach", 4.99 ) );
-        addToDrinkList( new DrinkListItem( "Blowjob", 4.99 ) );
-        addToDrinkList( new DrinkListItem( "Mojito", 4.99 ) );
-        addToDrinkList( new DrinkListItem( "B-52", 3.49 ) );
-        addToDrinkList( new DrinkListItem( "Bud Light", 3.49 ) );
-        addToDrinkList( new DrinkListItem( "Miller Light", 3.49 ) );
-        addToDrinkList( new DrinkListItem( "Coors Light", 3.49 ) );
-        addToDrinkList( new DrinkListItem( "Hamms", 3.49 ) );
-        addToDrinkList( new DrinkListItem( "Corona Extra", 4.49 ) );
-        addToDrinkList( new DrinkListItem( "Landshark", 4.49 ) );
-        addToDrinkList( new DrinkListItem( "Chardonnay", 4.49 ) );
-        addToDrinkList( new DrinkListItem( "Cabernet", 4.49 ) );
-        addToDrinkList( new DrinkListItem( "Moscato", 4.49 ) );
-        addToDrinkList( new DrinkListItem( "Champagne", 5.49 ) );
-        addToDrinkList( new DrinkListItem( "Riesling", 5.49 ) );
-        addToDrinkList( new DrinkListItem( "PinotNoir", 5.49 ) );
-        addToDrinkList( new DrinkListItem( "Merlot", 5.49 ) );
-        addToDrinkList( new DrinkListItem( "PinotGrigio", 5.49 ) );
-        addToDrinkList( new DrinkListItem( "Sauvignon Blanc", 5.49 ) );
-
         return instance;
     }
 
