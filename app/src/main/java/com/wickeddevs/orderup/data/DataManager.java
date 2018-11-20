@@ -1,5 +1,8 @@
 package com.wickeddevs.orderup.data;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,6 +71,7 @@ public class DataManager {
 
         //Drink list listener
         ValueEventListener barOrderListener = new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -80,11 +84,29 @@ public class DataManager {
 
                     HashMap orderHashmap = ( (HashMap) child.getValue() );
 
+                    //Get the item list
+                    ArrayList itemList = (ArrayList) orderHashmap.get( "items" );
+
+                    System.out.println( orderHashmap.get( "orderNumber" ).getClass() );
+
+                    //Get the order number
+                    long orderNumber =  Math.toIntExact( (long) orderHashmap.get( "orderNumber" ) );
+
+                    //Get the state
+                    String state = (String) orderHashmap.get( "state" );
+
+                    //Get the table number
+                    long tableNumber =  Math.toIntExact( (long) orderHashmap.get( "table" ) );
+
+                    System.out.println( tableNumber );
+
                     ArrayList a = (ArrayList) ( ( (HashMap) orderHashmap.get( "items" ) ).get( 0 ) );
+
+                    System.out.println( "cccc" );
 
                     System.out.println( a.get( 0 ) );
 
-
+                    System.out.println( "dddd" );
 
 
                 }
