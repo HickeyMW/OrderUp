@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Order {
 
-    public int table;
+    public int tableNumber;
     public int orderNumber;
     private int currentState = 0;               //Holds current index in state
 

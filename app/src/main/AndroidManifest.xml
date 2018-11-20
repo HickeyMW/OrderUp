@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.bar.BarActivity" />
-        <activity android:name=".ui.kitchen.KitchenActivity"></activity>
+        <activity android:name=".ui.kitchen.KitchenActivity" />
+        <activity android:name=".ui.waiter.tables.TablesActivity"></activity>
     </application>
 
 </manifest>

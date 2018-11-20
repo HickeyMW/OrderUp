@@ -76,7 +76,7 @@ public class BarRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             BarOrderVH barOrderVH = (BarOrderVH) holder;
             Order order = (Order) items.get(position);
             barOrderVH.order = order;
-            barOrderVH.tvTable.setText("Table " + order.table);
+            barOrderVH.tvTable.setText("Table " + order.tableNumber);
             barOrderVH.tvOrder.setText("Order " + order.orderNumber);
         } else {
             BarDrinkVH BarDrinkVH = (BarDrinkVH) holder;
