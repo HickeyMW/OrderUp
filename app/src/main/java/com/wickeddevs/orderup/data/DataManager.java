@@ -84,30 +84,48 @@ public class DataManager {
 
                     HashMap orderHashmap = ( (HashMap) child.getValue() );
 
-                    //Get the item list
-                    ArrayList itemList = (ArrayList) orderHashmap.get( "items" );
-
-                    System.out.println( orderHashmap.get( "orderNumber" ).getClass() );
-
                     //Get the order number
-                    long orderNumber =  Math.toIntExact( (long) orderHashmap.get( "orderNumber" ) );
+                    int orderNumber =  Math.toIntExact( (long) orderHashmap.get( "orderNumber" ) );
 
                     //Get the state
                     String state = (String) orderHashmap.get( "state" );
 
                     //Get the table number
-                    long tableNumber =  Math.toIntExact( (long) orderHashmap.get( "table" ) );
+                    int tableNumber =  Math.toIntExact( (long) orderHashmap.get( "table" ) );
 
-                    System.out.println( tableNumber );
+                    //Get the order's items
+                    ArrayList orderItems = (ArrayList) orderHashmap.get( "items" );
 
-                    ArrayList a = (ArrayList) ( ( (HashMap) orderHashmap.get( "items" ) ).get( 0 ) );
+                    //Recreate the order
+                    Order order = new Order();
+                    order.setState( state );
+                    order.table = tableNumber;
+                    order.orderNumber = orderNumber;
 
-                    System.out.println( "cccc" );
+                    for( Object itemObject : orderItems ){
 
-                    System.out.println( a.get( 0 ) );
+                        //Convert the item
+                        HashMap itemHashmap = (HashMap) itemObject;
 
-                    System.out.println( "dddd" );
+                        //Get the item name
+                        String itemName = (String) itemHashmap.get( "name" );
 
+                        //Get the item ID
+                        int itemID = Math.toIntExact( (long) itemHashmap.get( "id" ) );
+
+                        //Get the item's price
+                        double itemPrice = (double) itemHashmap.get( "price" );
+
+                        //Create a new item
+                        Item item = new Drink( itemID, itemName, itemPrice );
+
+                        //Add the item to the order
+                        order.addItem( item );
+
+                    }
+
+                    //Add the order to the order list
+                    barOrders.add( order );
 
                 }
 

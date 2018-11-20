@@ -34,6 +34,20 @@ public class Order {
         return getState();
     }
 
+    public void setState( String newState ){                     //Sets the state to a string
+
+        for( int i = 0; i < state.length; i++ ){
+
+            if( newState.equals( state[i] ) ){
+                setState( i );
+
+                return;
+            }
+
+        }
+
+    }
+
     public void addItem(Item newItem){          //Adds an item to the order
         items.add(newItem);
 
