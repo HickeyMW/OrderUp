@@ -9,6 +9,7 @@ import com.wickeddevs.orderup.data.ListObjects.DrinkListItem;
 
 import java.io.Console;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DataManager {
 
@@ -32,9 +33,6 @@ public class DataManager {
         //Create the empty drink list
         drinkList = new ArrayList<DrinkListItem>();
 
-        //Create the empty bar orders list
-        barOrders = new ArrayList<Order>();
-
         //Set up data listeners
 
         //Drink list listener
@@ -42,9 +40,23 @@ public class DataManager {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //Get the drink list when it's changed
-                drinkList = dataSnapshot.getValue( ArrayList.class );
+                //Start creating a new drinklist
+                drinkList = new ArrayList<DrinkListItem>();
 
+                for( DataSnapshot child : dataSnapshot.getChildren() ){
+
+                    HashMap itemHashmap = ( (HashMap) child.getValue() );
+
+                    String itemName = (String) itemHashmap.get( "name" );
+                    double itemPrice = (double) itemHashmap.get( "price" );
+
+                    //Make a new DrinkListItem from this child's insane hashmap
+                    DrinkListItem item = new DrinkListItem( itemName, itemPrice );
+
+                    //Add this item to the new drinklist
+                    drinkList.add( item );
+
+                }
             }
 
             //For now we're going to ignore this
@@ -52,16 +64,30 @@ public class DataManager {
             public void onCancelled(DatabaseError databaseError) {}
         };
 
-        //Listen for DrinkList changes (There shouldn't probably be any, but just in case)
         database.child( "drinklist" ).addValueEventListener( drinkListListener );
 
-        //Bar order list listener
+        //Drink list listener
         ValueEventListener barOrderListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //Get the bar orders when it's changed
-                barOrders = dataSnapshot.getValue( ArrayList.class );
+                System.out.println( " wew " );
+
+                //Start creating a new order list
+                barOrders = new ArrayList<Order>();
+
+                for( DataSnapshot child : dataSnapshot.getChildren() ){
+
+                    HashMap orderHashmap = ( (HashMap) child.getValue() );
+
+                    ArrayList a = (ArrayList) ( ( (HashMap) orderHashmap.get( "items" ) ).get( 0 ) );
+
+                    System.out.println( a.get( 0 ) );
+
+
+
+
+                }
 
             }
 
@@ -70,22 +96,7 @@ public class DataManager {
             public void onCancelled(DatabaseError databaseError) {}
         };
 
-        //Listen for bar order changes
-        //database.child( "barorders/" ).addValueEventListener( barOrderListener );
-
-        /*
-        //Only use as an example
-        Order order = new Order();
-        order.items.add(new Drink(0));
-        order.items.add(new Drink(1));
-        instance.addBarOrder( order );
-
-        Order order2 = new Order();
-        order2.items.add(new Drink(2));
-        order2.items.add(new Drink(3));
-        order2.items.add(new Drink(4));
-        instance.addBarOrder( order2 );
-        */
+        database.child( "barorders" ).addValueEventListener( barOrderListener );
 
         return instance;
     }

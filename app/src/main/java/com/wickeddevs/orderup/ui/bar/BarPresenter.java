@@ -19,7 +19,7 @@ public class BarPresenter implements BarContract.ViewListener {
 
         ArrayList<Order> orders = DataManager.getInstance().getBarOrders();
 
-        System.out.println( "Got orders " + orders.size() );
+        //System.out.println( DataManager.getInstance().getDrinkList().get( 0 ) );
 
         view.initialOrders( orders );
     }
