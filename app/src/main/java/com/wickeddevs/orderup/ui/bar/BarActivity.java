@@ -26,9 +26,6 @@ public class BarActivity extends AppCompatActivity implements BarContract.View {
         setTitle("Bar Activity");
         rvBar = findViewById(R.id.rvBar);
 
-        //Spin up the data manager and get the drink list just for fun
-        DataManager.getInstance().getDrinkList();
-
         viewListener.getOrders();
 
     }
