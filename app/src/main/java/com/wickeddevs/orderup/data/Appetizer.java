@@ -18,35 +18,18 @@ public class Appetizer extends Item {
 
     // Drink Array
     private static String[] names = {
-            "Margarita",
-            "White Russian",
-            "Sex on the Beach",
-            "Blowjob",
-            "Mojito",
-            "B-52",
-            "Bud Light",
-            "Miller Light",
-            "Coors Light",
-            "Hamms",
-            "Corona Extra",
-            "Landshark",
-            "Chardonnay",
-            "Cabernet",
-            "Moscato",
-            "Champagne",
-            "Riesling",
-            "PinotNoir",
-            "Merlot",
-            "PinotGrigio",
-            "Sauvignon Blanc"
+            "Fried Pickles",
+            "Mini Tacos",
+            "Mozerella Sticks",
+            "Onion Rings",
+            "Buffalo Wings"
 
     };
 
 
 
     // Price Array
-    private static double[] prices = { 4.99, 4.99, 4.99, 4.99, 4.99, 3.49, 3.49, 3.49, 3.49, 3.49,
-            4.49, 4.49, 4.49, 4.49, 4.49, 5.49, 5.49, 5.49, 5.49, 5.49};
+    private static double[] prices = { 4.99, 4.99, 4.99, 4.99, 4.99};
 
 
 }

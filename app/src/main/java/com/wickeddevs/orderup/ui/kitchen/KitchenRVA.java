@@ -81,7 +81,7 @@ public class KitchenRVA extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             orderVH.order = order;
             orderVH.tvTable.setText("Table " + order.tableNumber);
             orderVH.tvOrder.setText("Order " + order.orderNumber);
-        } else if (holder.getItemViewType() == 0) {
+        } else if (holder.getItemViewType() == 1) {
             ItemVH itemVH = (ItemVH) holder;
             Appetizer appetizer = (Appetizer) items.get(position);
             itemVH.tvName.setText(appetizer.getName());

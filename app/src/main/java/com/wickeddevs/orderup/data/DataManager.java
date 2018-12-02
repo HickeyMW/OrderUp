@@ -59,7 +59,7 @@ public class DataManager {
         for (int i = 0; i < 10; i ++) {
             Order order = new Order();
             order.orderNumber = random.nextInt(1000);
-            order.tableNumber = random.nextInt(200);
+            order.tableNumber = random.nextInt(100);
             order.items.add(new Drink(random.nextInt(20)));
             order.items.add(new Drink(random.nextInt(20)));
             orders.add(order);
@@ -72,9 +72,9 @@ public class DataManager {
         for (int i = 0; i < 10; i ++) {
             Order order = new Order();
             order.orderNumber = random.nextInt(1000);
-            order.tableNumber = random.nextInt(200);
-            order.items.add(new Food(random.nextInt(20)));
-            order.items.add(new Appetizer(random.nextInt(20)));
+            order.tableNumber = random.nextInt(100);
+            order.items.add(new Food(random.nextInt(13)));
+            order.items.add(new Appetizer(random.nextInt(5)));
             orders.add(order);
         }
         return orders;
@@ -84,6 +84,7 @@ public class DataManager {
         ArrayList<Table> tables = new ArrayList<>();
         for (int i = 0; i < 20; i ++) {
             Table table = new Table();
+            table.tableNumber = random.nextInt(100);
             table.appetizerStatus = random.nextInt(4);
             table.drinkStatus = random.nextInt(4);
             table.foodStatus = random.nextInt(4);
